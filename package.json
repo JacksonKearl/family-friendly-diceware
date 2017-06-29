@@ -1,17 +1,24 @@
 {
-	"name": "diceware",
-	"version": "0.0.1",
-	"description": "Simple diceware utility (http://world.std.com/~reinhold/diceware.html)",
-	"keywords": [
-		"diceware",
-		"generate",
-		"passphrase"
-	],
-	"homepage": "http://www.github.com/jatenate/diceware",
-	"main": "lib/diceware.js",
-	"author": "Justin Hurley (@jmh)",
-	"repository": {
-		"type": "git",
-		"url": "git://github.com/jatenate/diceware.git"
-	}
+  "name": "family-friendly-diceware",
+  "version": "1.0.0",
+  "description": "Diceware utils using EFF's family friendly diceware list. (https://www.eff.org/deeplinks/2016/07/new-wordlists-random-passphrases)",
+  "keywords": [
+    "diceware",
+    "generate",
+    "passphrase"
+  ],
+  "homepage": "http://www.github.com/JacksonKearl/family-friendly-diceware",
+  "main": "lib/diceware.js",
+  "author": "Jackson Kearl",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jatenate/diceware.git"
+  },
+	"scripts": {
+    "test": "mocha"
+  },
+  "devDependencies": {
+    "mocha": "^3.4.2",
+    "should": "^11.2.1"
+  }
 }
