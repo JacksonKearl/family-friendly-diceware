@@ -1,5 +1,5 @@
 # A simple diceware module
-
+[![CircleCI](https://circleci.com/gh/JacksonKearl/family-friendly-diceware.svg?style=svg)](https://circleci.com/gh/JacksonKearl/family-friendly-diceware)
 `diceware` generates passphrase using the the EFF's [family friendly diceware list](https://www.eff.org/deeplinks/2016/07/new-wordlists-random-passphrases).
 
 It's worth noting that [it's not recommended](http://world.std.com/~reinhold/dicewarefaq.html#electronic) to use a computer to generate a Diceware phrase. This package is in fact intended for easy to distribute UUID's, so we have also provided some additional backwards functionality.
