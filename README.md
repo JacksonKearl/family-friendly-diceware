@@ -28,7 +28,7 @@ diceware.phrase_to_id('  turtle AStride  porous  ')
 > '286370444755'
 
 diceware.phrase_to_id('turtal astride porous', function fixer(str) {
-  if (str == 'turtal') return 'turtle';
+  if (str == 'turtal') return 'turtle'; // a real fixer should follow same convention of returning closest string
 })
 > '286370444755'
 ```
