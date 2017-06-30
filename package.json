@@ -1,6 +1,6 @@
 {
   "name": "family-friendly-diceware",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Diceware utils using EFF's family friendly diceware list. (https://www.eff.org/deeplinks/2016/07/new-wordlists-random-passphrases)",
   "keywords": [
     "diceware",
