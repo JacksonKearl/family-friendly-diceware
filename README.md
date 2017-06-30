@@ -1,12 +1,12 @@
 # A simple diceware module
 [![CircleCI](https://circleci.com/gh/JacksonKearl/family-friendly-diceware.svg?style=svg)](https://circleci.com/gh/JacksonKearl/family-friendly-diceware)
 
+`family-friendly-diceware` generates easily sharable ids using the the EFF's [family friendly diceware list](https://www.eff.org/deeplinks/2016/07/new-wordlists-random-passphrases).
 
-`diceware` generates passphrase using the the EFF's [family friendly diceware list](https://www.eff.org/deeplinks/2016/07/new-wordlists-random-passphrases).
+This package intended for creation of easy to distribute UUID's, so we provide some backwards functionality (phrase to integer index).
 
-It's worth noting that [it's not recommended](http://world.std.com/~reinhold/dicewarefaq.html#electronic) to use a computer to generate a Diceware phrase. This package is in fact intended for easy to distribute UUID's, so we have also provided some additional backwards functionality.
-
-As this is meant to be use with user input, attempts to normalize and correct obvious errors are made. In the future we may attempt to use EFF's simplified word list with edit distance guarantees in order to provide more intelligent corrections.
+As this is meant to be use with user input, attempts to normalize and correct obvious errors are made. For example, `phrase_to_id` begins
+with a simple case and spacing normalization, then proceeds to call upon an optional `fixer` function (implemented for example via levenshein distance) to correct for more complex errors.
 
 ```
     npm install family-friendly-diceware
@@ -24,6 +24,11 @@ As this is meant to be use with user input, attempts to normalize and correct ob
     diceware.phrase_to_id('turtle astride porous')
     > '286370444755'
 
-    diceware.phrase_to_id('  turtle AStride    porous  ') // we make an attempt to normalize, actual correction possibly to come
+    diceware.phrase_to_id('  turtle AStride    porous  ')
+    > '286370444755'
+
+    diceware.phrase_to_id('turtal astride porous', function fixer(str) {
+      if (str == 'turtal') return 'turtle';
+    })
     > '286370444755'
 ```

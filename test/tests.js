@@ -56,5 +56,12 @@ describe('diceware', function () {
       var val = diceware.phrase_to_id('   tUrtLe      astride porouS  ' );
       val.should.be.an.instanceOf(String).and.equal('286370444755');
     })
+
+    it('is able to use the fixer function to correct mistakes in a phrase', function () {
+      var val = diceware.phrase_to_id('turtal astride porous', function(str) {
+        if (str === "turtal") return 'turtle';
+      });
+      val.should.be.an.instanceOf(String).and.equal('286370444755');
+    })
   })
 })
