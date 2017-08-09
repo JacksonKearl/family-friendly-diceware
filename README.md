@@ -18,19 +18,16 @@ diceware = require('family-friendly-diceware');
 diceware.make_phrase_with_id()
 > { phrase: 'turtle astride porous', id: '286370444755' }
 
-diceware.id_to_phrase('286370444755')
+diceware.clean_phrase('turtle astride porous')
 > 'turtle astride porous'
 
-diceware.phrase_to_id('turtle astride porous')
-> '286370444755'
+diceware.clean_phrase('  turtle AStride  porous  ')
+> 'turtle astride porous'
 
-diceware.phrase_to_id('  turtle AStride  porous  ')
-> '286370444755'
-
-diceware.phrase_to_id('turtal astride porous', function fixer(str) {
-  if (str == 'turtal') return 'turtle'; // a real fixer should follow same convention of returning closest string
-})
-> '286370444755'
+diceware.clean_phrase('turtal astride porous', function fixer(str) {
+  if (str == 'turtal') return Promise.resolve('turtle'); // a real fixer should follow same convention of returning closest string
+}).then(val => console.log(val));
+> 'turtle astride porous'
 ```
 
 Example fixer (assume `words` is a table containing all words of a give diceware wordlist):
